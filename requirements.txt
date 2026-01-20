@@ -3,7 +3,7 @@ pandas
 numpy
 scikit-learn
 pandas-ta
-alpha_vantage
+alpha-vantage
 python-dotenv
 plotly
 requests
