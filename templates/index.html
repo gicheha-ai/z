@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forex EUR/USD Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📈 Forex EUR/USD Prediction System</h1>
+            <p class="last-updated" id="last-updated">Loading...</p>
+            <p class="refresh-info" id="countdown">Next update in: 60 seconds</p>
+        </div>
+        
+        <div class="alert" id="alert"></div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Analyzing market data...</p>
+        </div>
+        
+        <div id="content" style="display: none;">
+            <div class="main-content">
+                <div class="prediction-card">
+                    <h2 class="card-title">🎯 Market Prediction</h2>
+                    
+                    <div class="price-display">
+                        <p>Current EUR/USD Price</p>
+                        <div class="price" id="current-price">1.0850</div>
+                    </div>
+                    
+                    <div class="prediction-box">
+                        <div class="prediction-label">Prediction:</div>
+                        <div class="prediction-value bullish" id="prediction">BULLISH</div>
+                    </div>
+                    
+                    <div class="confidence-meter">
+                        <p>Confidence Level</p>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" id="confidence-fill" style="width: 75%"></div>
+                        </div>
+                        <div class="confidence-percentage" id="confidence-percentage">75%</div>
+                    </div>
+                    
+                    <div class="action-signal buy-signal" id="action-signal">
+                        <div class="action-text" id="action-text">BUY</div>
+                        <div class="action-subtext" id="action-subtext">Strong upward movement predicted</div>
+                    </div>
+                </div>
+                
+                <div class="indicators-card">
+                    <h2 class="card-title">📊 Technical Indicators</h2>
+                    <div class="indicator-grid" id="indicators-grid">
+                        <div class="indicator-item">
+                            <div class="indicator-name">RSI (14)</div>
+                            <div class="indicator-value" id="indicator-rsi">50.00</div>
+                        </div>
+                        <div class="indicator-item">
+                            <div class="indicator-name">MACD</div>
+                            <div class="indicator-value" id="indicator-macd">0.0000</div>
+                        </div>
+                        <div class="indicator-item">
+                            <div class="indicator-name">Stochastic %K</div>
+                            <div class="indicator-value" id="indicator-stochastic">50.00</div>
+                        </div>
+                        <div class="indicator-item">
+                            <div class="indicator-name">ATR</div>
+                            <div class="indicator-value" id="indicator-atr">0.0010</div>
+                        </div>
+                        <div class="indicator-item">
+                            <div class="indicator-name">ADX</div>
+                            <div class="indicator-value" id="indicator-adx">25.00</div>
+                        </div>
+                        <div class="indicator-item">
+                            <div class="indicator-name">Williams %R</div>
+                            <div class="indicator-value" id="indicator-williams">-50.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="refresh-info">
+                        <p>System analyzes: 20+ indicators, 5 timeframes, historical patterns</p>
+                        <button id="refresh-btn" style="
+                            background: linear-gradient(45deg, #00b4db, #0083b0);
+                            color: white;
+                            border: none;
+                            padding: 10px 20px;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            margin-top: 10px;
+                            font-weight: bold;
+                        ">
+                            🔄 Refresh Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <h2 class="card-title">📈 Price Chart</h2>
+                <div id="price-chart"></div>
+            </div>
+            
+            <div class="disclaimer">
+                <h3>⚠️ Important Disclaimer</h3>
+                <p>This system provides algorithmic predictions based on technical analysis. Past performance does not guarantee future results. Forex trading involves substantial risk of loss and is not suitable for all investors. Always conduct your own research and consider consulting with a licensed financial advisor before making trading decisions.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Forex Prediction System v1.0 | Auto-refreshes every 60 seconds | Using Alpha Vantage API</p>
+            <p>Note: This is for educational purposes. Accuracy of predictions may vary.</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
